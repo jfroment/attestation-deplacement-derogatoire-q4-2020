@@ -3,8 +3,10 @@ version: '3.4'
 # Must be run behind a Traefik v2 reverse proxy
 services:
   attestation:
-    build:
-      context: .
+    # Uncomment below and comment image field if you want to build yourself
+    # build:
+    #   context: .
+    image: quay.io/jfroment/attestation-deplacement:latest
     container_name: attestation
     restart: always
     labels:
