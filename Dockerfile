@@ -16,8 +16,8 @@ RUN apk update && apk upgrade && \
       chromium@edge \
       nss@edge
 
-# Install Python
-RUN apk add --no-cache --update python3
+# Install Python3 and other build tools
+RUN apk add --no-cache --update python3 alpine-sdk
 
 RUN npm install \
     && npm run build
