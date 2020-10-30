@@ -1,0 +1,20 @@
+version: '3.4'
+
+# Must be run behind a Traefik v2 reverse proxy
+services:
+  attestation:
+    build:
+      context: .
+    container_name: attestation
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.attestation.rule=Host(`attestation.${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.attestation.entrypoints=secure"
+      - "traefik.http.routers.attestation.tls.certresolver=le"
+      - "traefik.docker.network=traefik-network"
+
+networks:
+  default:
+    external:
+      name: traefik-network
