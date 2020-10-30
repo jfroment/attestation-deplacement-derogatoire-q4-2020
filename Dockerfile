@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
       nss@edge
 
 # Install Python
-RUN apk install --no-cache --update python3
+RUN apk add --no-cache --update python3
 
 RUN npm install \
     && npm run build
