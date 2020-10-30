@@ -16,6 +16,9 @@ RUN apk update && apk upgrade && \
       chromium@edge \
       nss@edge
 
+# Install Python
+RUN apk install --no-cache --update python3
+
 RUN npm install \
     && npm run build
 
